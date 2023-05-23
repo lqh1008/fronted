@@ -14,6 +14,7 @@ export const useCounterStore = defineStore(
     const menu = ref([])
 
     const getMenu = () => {
+      console.log(111)
       return new Promise((resolve) => {
         http
           .request({
