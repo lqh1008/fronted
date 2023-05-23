@@ -24,7 +24,7 @@ jobs:
         cache-dependency-path: ./pnpm-lock.yaml
     - run: npm install
     - name: build project
-      run: npm run build --if-present
+      run: npm run build-only --if-present
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@main
       env:
