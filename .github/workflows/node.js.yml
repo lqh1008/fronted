@@ -19,8 +19,8 @@ jobs:
     - name: Use Node.js 16.x
       uses: actions/setup-node@v3
       with:
-        node-version: 16.16.0
-        cache: 'npm'
+        node-version: 16.20.0
+        cache: 'pnpm'
         cache-dependency-path: ./pnpm-lock.yaml
     - run: npm install
     - name: build project
