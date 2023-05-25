@@ -1,6 +1,6 @@
 FROM node:16.20.0
 
-COPY fronted fronted
+COPY dist dist
 
 RUN npm run build-only
 
