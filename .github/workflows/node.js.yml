@@ -25,6 +25,7 @@ jobs:
         username: ${{ secrets.REMOTE_USER }}
         password: ${{ secrets.REMOTE_SECRET }}
         script: |
+            rm -rf fronted
             git clone https://github.com/lqh1008/fronted.git -b master
             rm -rf Dockfile
             mv ./fronted/Dockfile .
