@@ -25,10 +25,9 @@ jobs:
         username: ${{ secrets.REMOTE_USER }}
         password: ${{ secrets.REMOTE_SECRET }}
         script: |
-            rm -rf fronted
+            rm -rf fronted Dockfile nginx.conf
             git clone https://github.com/lqh1008/fronted.git -b master
-            rm -rf Dockfile
-            mv ./fronted/Dockfile .
+            mv ./fronted/Dockerfile .
             mv ./fronted/nginx.conf .
             docker build .
         #   cd /www/wwwroot/
