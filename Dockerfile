@@ -1,6 +1,6 @@
 FROM node:16.20.0
 
-ADD fronted ./app
+COPY fronted fronted
 
 RUN npm run build-only
 
