@@ -18,25 +18,46 @@ jobs:
       with:
         node-version: 16.20.0
 
-    - uses: pnpm/action-setup@v2
-      name: Install pnpm
-      id: pnpm-install
+    - name: 🖥️ SSH
+      uses: appleboy/ssh-action@master
       with:
-        version: 7
-        # run_install: false
+        host: ${{ secrets.REMOTE_HOST }}
+        username: ${{ secrets.REMOTE_USER }}
+        password: ${{ secrets.REMOTE_SECRET }}
+        script: |
+            git clone https://github.com/lqh1008/fronted.git -b master
+        #   cd /www/wwwroot/
+        #   rm record_api/ -rf
+        #   mkdir record_api && cd record_api
+        #   git clone git@github.com:weipengzou/records_app_api.git -b master . 
+        #   npm install
+        #   npm run build:prod
+        #   pm2 delete all
+        #   pm2 --name record_api start npm -- run start:prod -i max
+        #   pm2 startup
+        #   pm2 save
+        # port: 22
 
-    - run: pnpm install
 
-    - name: build project
-      run: pnpm run build-only
+    # - uses: pnpm/action-setup@v2
+    #   name: Install pnpm
+    #   id: pnpm-install
+    #   with:
+    #     version: 7
+    #     # run_install: false
 
-    - name: Deploy to Server
-      uses: easingthemes/ssh-deploy@main
-      env:
-          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
-          ARGS: "-rltgoDzvO --delete"
-          SOURCE: "dist/"
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: ${{ secrets.REMOTE_TARGET }}
-          EXCLUDE: "/node_modules/"
+    # - run: pnpm install
+
+    # - name: build project
+    #   run: pnpm run build-only
+
+    # - name: Deploy to Server
+    #   uses: easingthemes/ssh-deploy@main
+    #   env:
+    #       SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+    #       ARGS: "-rltgoDzvO --delete"
+    #       SOURCE: "dist/"
+    #       REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+    #       REMOTE_USER: ${{ secrets.REMOTE_USER }}
+    #       TARGET: ${{ secrets.REMOTE_TARGET }}
+    #       EXCLUDE: "/node_modules/"
