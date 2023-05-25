@@ -8,6 +8,8 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 // https://vitejs.dev/config/
 export default defineConfig({
+  // 打包后静态资源路径绝对路径->相对路径
+  base: './',
   plugins: [
     vue(),
     vueJsx(),
@@ -33,5 +35,12 @@ export default defineConfig({
       }
     }
   },
-  publicDir: '/public'
-})
+  publicDir: '/public',
+  // assetsInclude: ['assets/*']
+  
+  // build: {
+  //   outDir: "dist", // 输出名称
+  //   assetsDir: "static" // 静态资源目录
+  //   }   
+  }
+)

@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
-import http from '@/utils/http'
+// import http from '@/utils/http'
 
 export const useCounterStore = defineStore(
   'counter',
@@ -13,22 +13,22 @@ export const useCounterStore = defineStore(
 
     const menu = ref([])
 
-    const getMenu = () => {
-      console.log(111)
-      return new Promise((resolve) => {
-        http
-          .request({
-            url: '/v1/routes'
-          })
-          .then((res: any) => {
-            resolve(res)
-          })
-      })
-    }
+    // const getMenu = () => {
+    //   console.log(111)
+    //   return new Promise((resolve) => {
+    //     http
+    //       .request({
+    //         url: '/v1/routes'
+    //       })
+    //       .then((res: any) => {
+    //         resolve(res)
+    //       })
+    //   })
+    // }
 
-    const setMenu = (data: any) => {
-      menu.value = data
-    }
+    // const setMenu = (data: any) => {
+    //   menu.value = data
+    // }
 
     return { count, doubleCount, menu, getMenu, setMenu }
   },

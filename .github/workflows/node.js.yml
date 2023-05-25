@@ -12,11 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     environment: auto-deploy-test
     steps:
-    - uses: actions/checkout@master
-    - name: Use Node.js 16.20.0
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16.20.0
+    # - uses: actions/checkout@master
+    # - name: Use Node.js 16.20.0
+    #   uses: actions/setup-node@v3
+    #   with:
+    #     node-version: 16.20.0
 
     - name: 🖥️ SSH
       uses: appleboy/ssh-action@master
@@ -26,6 +26,10 @@ jobs:
         password: ${{ secrets.REMOTE_SECRET }}
         script: |
             git clone https://github.com/lqh1008/fronted.git -b master
+            rm -rf Dockfile
+            mv ./fronted/Dockfile .
+            mv ./fronted/nginx.conf .
+            docker build .
         #   cd /www/wwwroot/
         #   rm record_api/ -rf
         #   mkdir record_api && cd record_api
