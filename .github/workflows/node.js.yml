@@ -30,7 +30,8 @@ jobs:
             mv ./fronted/Dockerfile .
             mv ./fronted/nginx.conf .
             cd ./fronted 
-            npm run build-only
+            pnpm i
+            pnpm run build-only
           
         #   cd /www/wwwroot/
         #   rm record_api/ -rf
