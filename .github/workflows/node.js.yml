@@ -30,10 +30,9 @@ jobs:
             cd ./fronted 
             pnpm i
             pnpm run build-only
-            mkdir www
-            cd mkdir
-            mv ../fronted/dist /dist
-            mv ../fronted/Dockfile Dockfile
+            cd ..
+            copy ../fronted/dist .
+            copy ../fronted/Dockfile Dockfile
 
           
         #   cd /www/wwwroot/
