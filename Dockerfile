@@ -11,4 +11,7 @@ FROM nginx:latest
 COPY ./dist dist
 
 RUN apt-get update && \
-    apt-get install -y vim
+    apt-get install -y vim && \
+    cd root && \
+    mv ../dist html
+
