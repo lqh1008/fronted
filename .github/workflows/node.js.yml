@@ -32,7 +32,7 @@ jobs:
             pnpm run build-only
             cd ..
             mv ./fronted/dist .
-            mv ./fronted/Dockfile Dockfile
+            mv ./fronted/Dockerfile Dockerfile
 
           
         #   cd /www/wwwroot/
