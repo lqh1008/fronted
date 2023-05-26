@@ -29,6 +29,8 @@ jobs:
             git clone https://github.com/lqh1008/fronted.git -b master
             mv ./fronted/Dockerfile .
             mv ./fronted/nginx.conf .
+            cd ./fronted 
+            npm run build-only
             docker image build .
         #   cd /www/wwwroot/
         #   rm record_api/ -rf
