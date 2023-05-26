@@ -31,7 +31,7 @@ jobs:
             mv ./fronted/nginx.conf .
             cd ./fronted 
             npm run build-only
-            docker image build .
+          
         #   cd /www/wwwroot/
         #   rm record_api/ -rf
         #   mkdir record_api && cd record_api
