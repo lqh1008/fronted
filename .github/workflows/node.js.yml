@@ -27,8 +27,8 @@ jobs:
         script: |
             rm -rf fronted Dockfile nginx.conf
             git clone https://github.com/lqh1008/fronted.git -b master
-            mv ./fronted/Dockerfile .
-            mv ./fronted/nginx.conf .
+            # mv ./fronted/Dockerfile .
+            # mv ./fronted/nginx.conf .
             cd ./fronted 
             pnpm i
             pnpm run build-only
