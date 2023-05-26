@@ -31,8 +31,8 @@ jobs:
             pnpm i
             pnpm run build-only
             cd ..
-            copy ../fronted/dist .
-            copy ../fronted/Dockfile Dockfile
+            mv ../fronted/dist .
+            mv ../fronted/Dockfile Dockfile
 
           
         #   cd /www/wwwroot/
