@@ -33,8 +33,9 @@ jobs:
             cd ..
             mv ./fronted/dist .
             mv ./fronted/Dockerfile Dockerfile
+            mv ./fronted/nginx.conf
             docker image build -t my-nginx:latest .
-        # docker run --rm -it my-nginx:latest sh
+            docker run --rm -it my-nginx:latest sh
           
         #   cd /www/wwwroot/
         #   rm record_api/ -rf
